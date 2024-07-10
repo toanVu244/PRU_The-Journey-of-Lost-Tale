@@ -222,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12bb201d0d9697d4b9cd890282bef4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 146851426}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +258,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -284,7 +283,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -315,6 +314,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &663653645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4889449561559072038, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+  m_PrefabInstance: {fileID: 688625356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &688625356
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.409271
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40.440147
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8513705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853421097571099128, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889449561559072038, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9733a5b30ecf9154c800e8bb3546b53e, type: 3}
 --- !u!1 &787278374
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5989dbd0dd2b69945a1bc0afad68042d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
+  npcInRange: 0
   dialog:
     lines:
     - character:
@@ -510,7 +573,14 @@ MonoBehaviour:
         icon: {fileID: 21300000, guid: 2ad6106162821f74dbf94056dcc5213b, type: 3}
         name: "V\xF5 t\u01B0\u1EDBng"
       line: "Ti\u1EC3u th\u1EA7n tu\xE2n m\u1EC7nh!"
-  dialogObject: {fileID: 0}
+  questDialog:
+    lines: []
+  haveQuest: 0
+  playerInventory: {fileID: 0}
+  requiredItem: {fileID: 0}
+  CurrentQuestProgress: 0
+  CurrentChapter: 0
+  physic: {fileID: 0}
 --- !u!114 &811716710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +594,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogObject: {fileID: 1466411006}
+  CutScene: 1
+  movementAllowed: 0
+  battle: {fileID: 0}
+  movement: {fileID: 663653645}
+  question: {fileID: 0}
+  cameraChange: {x: 0, y: 0, z: 0}
   characterIcon: {fileID: 2042247465}
   characterName: {fileID: 1946315888}
   diagalogArea: {fileID: 950400310}
@@ -542,7 +618,7 @@ GameObject:
   - component: {fileID: 903522871}
   - component: {fileID: 903522873}
   m_Layer: 5
-  m_Name: CutSnece_1
+  m_Name: BackGround_Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -658,6 +734,7 @@ MonoBehaviour:
   audioSource: {fileID: 1026794442}
   sfxSource: {fileID: 1740403187}
   background: {fileID: 8300000, guid: 9b54736f7b71c4a44a168dba62f71513, type: 3}
+  combatBackground: {fileID: 0}
   collectoItem: {fileID: 0}
   dialogSound: {fileID: 0}
 --- !u!4 &916254022
@@ -1471,8 +1548,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1845,7 +1922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda6507ffdfb43c4b89278c7bdfa9950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPlace: Forest
+  sceneToLoad: 
+  playerPos: {x: 0, y: 0, z: 0}
+  playerStoragePos: {fileID: 0}
 --- !u!1 &1946315886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,3 +2242,4 @@ SceneRoots:
   - {fileID: 1319872930}
   - {fileID: 916254022}
   - {fileID: 414568578}
+  - {fileID: 688625356}

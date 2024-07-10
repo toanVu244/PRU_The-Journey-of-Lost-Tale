@@ -823,7 +823,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1477,6 +1477,7 @@ MonoBehaviour:
   audioSource: {fileID: 1610330042}
   sfxSource: {fileID: 22748102}
   background: {fileID: 8300000, guid: 3a5b46a512b09b348a587ae7d3377ed4, type: 3}
+  combatBackground: {fileID: 0}
   collectoItem: {fileID: 0}
   dialogSound: {fileID: 0}
 --- !u!4 &1316836538

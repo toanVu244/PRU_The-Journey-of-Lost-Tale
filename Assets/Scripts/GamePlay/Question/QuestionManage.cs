@@ -16,16 +16,20 @@ public class QuestionManage : MonoBehaviour
 {
     public TextMeshProUGUI questionText;
     public Button[] answerButtons;
+    public GameObject movement;
+    public GameObject backGround;
     public TextMeshProUGUI feedbackText;
-
+    public TextMeshProUGUI heartContainer;
     private List<Question> remainingQuestions = new List<Question>();
     private Question currentQuestion;
-    private int countTrue;
+    private int countTrue = 0;
+    private int countFalse = 0;
+    public GameObject triggerObj;
 
     void Start()
     {
         CreateQuestions();
-        DisplayNextQuestion();
+        DisplayNextQuestion();       
     }
     
     void CreateQuestions()
@@ -51,7 +55,7 @@ public class QuestionManage : MonoBehaviour
         Question question4 = new Question();
         question4.questionText = "Thứ gì khác với 3 thứ còn lại?";
         question4.answers = new string[] { "Gừng", "Cà rốt", "Khoai tây", "Cà chua" };
-        question4.correctAnswerIndex = 2;
+        question4.correctAnswerIndex = 3;
         remainingQuestions.Add(question4);
 
         Question question5 = new Question();
@@ -80,7 +84,7 @@ public class QuestionManage : MonoBehaviour
 
         Question question9 = new Question();
         question9.questionText = "Đàn cổ cầm có mấy dây?";
-        question9.answers = new string[] { "5", "6", "7","8" };
+        question9.answers = new string[] { "5", "6", "7", "8" };
         question9.correctAnswerIndex = 2;
         remainingQuestions.Add(question9);
 
@@ -134,7 +138,7 @@ public class QuestionManage : MonoBehaviour
 
         Question question18 = new Question();
         question18.questionText = "Vai trò chính của chất đạm là:";
-        question18.answers = new string[] { "Cung cấp năng lượng cho cơ thể", "Duy trì nhiệt độ cho cơ thể", "Xây dựng và đổi mới cơ thể: tái tạo những tế bào mới làm cơ thể lớn lên" , "Giúp cơ thể hấp thụ nước" };
+        question18.answers = new string[] { "Cung cấp năng lượng cho cơ thể", "Duy trì nhiệt độ cho cơ thể", "Xây dựng và đổi mới cơ thể: tái tạo những tế bào mới làm cơ thể lớn lên", "Giúp cơ thể hấp thụ nước" };
         question18.correctAnswerIndex = 2;
         remainingQuestions.Add(question18);
 
@@ -159,19 +163,21 @@ public class QuestionManage : MonoBehaviour
 
     void DisplayNextQuestion()
     {
-        feedbackText.gameObject.SetActive(false);
         if (remainingQuestions.Count == 0)
         {
             if (countTrue < 10)
             {
                 feedbackText.text = "You've completed all the questions! \nYou have been defeated! Total Correct anwer:" + countTrue;
                 feedbackText.gameObject.SetActive(true);
+                FindObjectOfType<Movement>().isQuestionActive = true;
                 return;
             }
             else
             {
                 feedbackText.text = "You've completed all the questions! \nYou Win! Total Correct anwer:" + countTrue;
                 feedbackText.gameObject.SetActive(true);
+                backGround.SetActive(false);
+                triggerObj.SetActive(false);
                 return;
             }
         }
@@ -194,14 +200,31 @@ public class QuestionManage : MonoBehaviour
     {
         if (index == currentQuestion.correctAnswerIndex)
         {
-            feedbackText.text = "Correct!";
+            heartContainer.text = (3 - countFalse)+ " ";
             countTrue++;
+            heartContainer.gameObject.SetActive(true);
+            Invoke("HandleCorrectAnswer", 1f);
         }
         else
         {
-            feedbackText.text = "Wrong!";        
+            countFalse++;           
+            heartContainer.text = (3 - countFalse)+ " ";
+            heartContainer.gameObject.SetActive(true);
+            Invoke("HandleIncorrectAnswer", 1f);
+            if (countFalse == 3)
+            {
+                heartContainer.text = "3 ";
+                backGround.SetActive(false);                
+            }
         }
-        feedbackText.gameObject.SetActive(true);
-        Invoke("DisplayNextQuestion", 1f);
+    }
+
+    void HandleCorrectAnswer()
+    {
+        DisplayNextQuestion();
+    }
+    void HandleIncorrectAnswer()
+    {
+        DisplayNextQuestion();
     }
 }

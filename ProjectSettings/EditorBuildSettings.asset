@@ -12,18 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScene_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/CutScene_2.unity
+    guid: c3945a2c98187724e8a6a0bfe6f9c33f
+  - enabled: 1
+    path: Assets/Scenes/CutScene_3.unity
+    guid: 7750b8d8d8ca95f4587e31eccf84faed
+  - enabled: 1
     path: Assets/Scenes/Story1_Forest.unity
     guid: b8d5320ef67db1d42a9d11649f8c3b37
   - enabled: 1
-    path: Assets/Scenes/Story1_Mountain.unity
-    guid: 7750b8d8d8ca95f4587e31eccf84faed
+    path: Assets/Scenes/CutScene_4.unity
+    guid: c57a00fda6bbb27488aec11f380f9c9d
   - enabled: 1
     path: Assets/Scenes/Story1_Cave.unity
     guid: ed225d0bd6efe66498da6fcf62523a91
   - enabled: 1
-    path: Assets/Scenes/Story1_Kingdom.unity
-    guid: c57a00fda6bbb27488aec11f380f9c9d
+    path: Assets/Scenes/CutScene_5.unity
+    guid: ef13b95f8f51de1419abae5f3e1965e2
   - enabled: 1
-    path: Assets/Scenes/QuestionScene.unity
-    guid: c3945a2c98187724e8a6a0bfe6f9c33f
+    path: Assets/Scenes/CutScene_6.unity
+    guid: 72eeeac55c0e4dd4baa1173639b6fea9
   m_configObjects: {}

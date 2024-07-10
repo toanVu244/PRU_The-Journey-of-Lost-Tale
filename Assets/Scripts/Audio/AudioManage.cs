@@ -10,12 +10,19 @@ public class AudioMange : MonoBehaviour
 
     [Header("-----Audio Clips-------")]
     public AudioClip background;
+    public AudioClip combatBackground;
     public AudioClip collectoItem;
     public AudioClip dialogSound;
 
     private void Start()
     {
         audioSource.clip = background;
+        audioSource.Play();
+    }
+
+    public void ChangeCBBackground()
+    {
+        audioSource.clip = combatBackground;
         audioSource.Play();
     }
 
